@@ -1,16 +1,25 @@
+function hitungDiskon() {
+    const jumlahInput = document.getElementById('jumlah');
+    const jumlah = parseFloat(jumlahInput.value);
+    
+    let disk = 0;
+    let total = 0;
+    
+    if (jumlah >= 100000) {
+      disk = 10;
+    } else if (jumlah >= 50000) {
+      disk = 5;
+    }
+    else
+      disk=0;
+    
+    total = jumlah - ((disk/100) *jumlah);
+    
+    const Display = document.getElementById('disk');
 
+    const jumlahDisplay = document.getElementById('total');
+    
 
-// document.getElementById("mybutton").onclick = function(){
-    let harga = prompt("Masukkan total pembelian anda: ");
-
-            if (harga >= 100000){
-                console.log("anda mendapat diskon sebesar 10%");
-            }
-            else if (harga < 100000 && harga>=50000){
-                console.log("Anda mendapat diskon 5%");
-            }
-            else
-                console.log("anda tidak mendapat diskon");
-
-//  }
-
+    Display.textContent = `Anda mendapat diskon sebesar: ${disk}%`;
+    jumlahDisplay.textContent = `Jumlah total belanjaan anda: Rp ${total}`;
+    }
